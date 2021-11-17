@@ -30,6 +30,21 @@ def print_result():
     print('Number of queries:', end_queries - start_queries)
 
 """
+WITH max_prices AS (
+SELECT MAX(price) as p FROM PC
+UNION ALL
+SELECT MAX(price) as p FROM Laptop
+UNION ALL
+SELECT MAX(price) as p FROM Printer
+)
+SELECT model FROM PC WHERE price = (SELECT MAX(p) as max_p FROM max_prices)
+UNION
+SELECT model FROM Laptop WHERE price = (SELECT MAX(p) as max_p FROM max_prices)
+UNION
+SELECT model FROM Printer WHERE price = (SELECT MAX(p) as max_p FROM max_prices)
+"""
+
+"""
 Правильный результат:
 model
 1750

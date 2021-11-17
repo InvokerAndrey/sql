@@ -19,7 +19,7 @@ Printer(code, model, color, type, price)
 
 class Product(models.Model):
     maker = models.CharField(max_length=10)
-    model = models.IntegerField(primary_key = True, max_length=10, unique=True)
+    model = models.IntegerField(primary_key=True, max_length=10, unique=True)
     type = models.CharField(max_length=10)
 
     def __str__(self):

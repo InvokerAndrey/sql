@@ -11,6 +11,8 @@ def run():
     result = Printer.objects.values('model', 'price').annotate(max_price=Max('price')).filter(price=max_price['max_price'])
     return result
 
+    # Printer.objects.values('model', 'price').filter(price=Printer.objects.aggregate(max_price=Max('price'))['max_price'])
+
 
 def print_result():
     reset_queries()

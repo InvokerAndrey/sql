@@ -7,6 +7,7 @@ from django.db.models import Q
 
 def run():
     result = PC.objects.values('model', 'speed', 'hd').filter((Q(cd='12x') | Q(cd='24x')) & Q(price__lt=600))
+    # PC.objects.values('model', 'speed', 'hd').filter(cd__in=['12x', '24x'], price__lt=600)
     return result
 
 

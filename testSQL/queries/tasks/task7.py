@@ -13,6 +13,11 @@ def run():
     result = laptops.union(PCs, printers)
     return result
 
+    # pcs = PC.objects.values('model', 'price').filter(model__maker='B').distinct()
+    # laptops = Laptop.objects.values('model', 'price').filter(model__maker='B').distinct()
+    # printers = Printer.objects.values('model', 'price').filter(model__maker='B').distinct()
+    # printers.union(pcs, laptops)
+
 
 def print_result():
     reset_queries()
